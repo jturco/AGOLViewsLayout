@@ -15,19 +15,31 @@
         		padding-top: 4px;
         		color:#6600000;
         	}
+        	#mapDiv, #maintab1{
+        		height:100%;
+        		width:100%;
+        	}
         </style>
         <script src="http://js.arcgis.com/3.9/"></script>
         <script src="js/main.js"></script>
-        
+        <script src="js/selectlist.js"></script>
+        <script src="js/map.js"></script>
     </head>
     <body class="claro">
-    	<div id="main" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'" style="height:100%; width:100%">Hello
+    	<div id="main" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'" style="height:100%; width:100%">
     		<div data-dojo-type="dijit/layout/ContentPane" id="header" data-dojo-props="region:'top'">AGOL Views</div>
-    		<div data-dojo-type="dijit/layout/ContentPane" id="data" data-dojo-props="region:'left'" style="width:300px; overflow:hidden;">Views</div>
+    		<div data-dojo-type="dijit/layout/ContentPane" id="leftcolumn" data-dojo-props="region:'left'" style="width:300px; overflow:hidden;">
+    			<div id="contentlist"></div>
+    			<p><button id="progbutton" type="button">Update Content</button></p>
+    		</div>
     		<div data-dojo-type="dijit/layout/ContentPane" id="tc" data-dojo-props="region:'center'">
     			<div data-dojo-type="dijit/layout/TabContainer" id="tabcontainer">
-    				<div data-dojo-type="dijit/layout/ContentPane" name="Map" id="map" data-dojo-props="region:'center'">Map</div>
-    				<div data-dojo-type="dijit/layout/ContentPane" name="Views" id="graph" data-dojo-props="region:'center'">Graph</div>
+    				<div data-dojo-type="dijit/layout/ContentPane" title="Map" id="maintab1" data-dojo-props="region:'center'">
+    					<div data-dojo-type="dijit/layout/ContentPane" id="mapDiv">Inside the map div</div>
+    				</div>
+    				<div data-dojo-type="dijit/layout/ContentPane" title="Views" id="maintab2" data-dojo-props="region:'center'">
+    					<div id="graphDiv">Inside the graph</div>
+    				</div>
     			</div>
     		</div>
     	</div>
